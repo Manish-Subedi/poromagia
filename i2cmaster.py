@@ -31,11 +31,11 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBILSH message is received from the server
 def on_message(client, userdata, msg):
     # cast to string
-    decision = str(msg.payload.decode())
-    #decision_ = json.loads(decision)
-    #int = decision["int"]
-    #print(msg.topic+" "+str(msg.payload))
-    print("Json "+decision)
+    json_raw = str(msg.payload.decode())
+    json_parsed = json.loads(json_raw)
+    int = json_parsed["int"]
+    status = json_parsed["status"]
+    print("The integer is "+str(int)+" "+"and the status is "+str(status))
     # Only print the valid decision
     """
     0 means home
@@ -45,10 +45,13 @@ def on_message(client, userdata, msg):
     4 means expensive category
     5 means unidentified cards
     """
-    #if int(decision) <= 5 and int(decision) >= 2:
-        # write the payload to i2c (Arduino)
-     #   bus.write_byte(addr,int(decision))
+    if int <= 5 and int >= 2:
+        #write the payload to i2c (Arduino)
+        bus.write_byte(addr, int)
 
+    # Put Arduino to deep sleep if status is 0
+    #if status == 0:
+    #    bus.write_byte(addr, 0) # this must be configured in Arduino program as well
 """
 
 #read from arduino 
