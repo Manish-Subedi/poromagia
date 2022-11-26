@@ -67,9 +67,9 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 #provide login credentials
-client.username_pw_set(username="friends",password="Wow_manis")
+client.username_pw_set(username="****",password="****")
 # Connect to the broker
-client.connect("hetkinen.ddns.net", 2048, 60)
+client.connect("****", **, *)
 client.tls_set()
 client.loop_forever()
 ###### EOF ######
