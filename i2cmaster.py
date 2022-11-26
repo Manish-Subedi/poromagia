@@ -35,7 +35,7 @@ def on_message(client, userdata, msg):
     #decision_ = json.loads(decision)
     #int = decision["int"]
     #print(msg.topic+" "+str(msg.payload))
-    print("Json "+type(decision_))
+    print("Json "+decision)
     # Only print the valid decision
     """
     0 means home
