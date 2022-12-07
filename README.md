@@ -1,6 +1,7 @@
 # Brief
 Raspberry pi (Master) communicates with Arduino (Slave) via I2C. 
-Raspi subscribes to MQTT topic, interfaces with Identifying Algorithm
+Raspi takes images, sends images to the Identifying Algorithm and 
+gets the decision via MQTT. The decision is sent to the Arduino. 
 
 Raspberry Pi is configured as I2C Master and Arduino as a Slave.
 
@@ -17,8 +18,6 @@ the last slot would hold the unidentified cards.
 The Raspi then writes the integer to I2C bus (to Arduino)
 Arduino performs necessary action, puts the card to the respective box.
 
-The Arduino, on the other hand, sends a command when the card the suction system 
-takes a card on top of the camera
-
-.
+The Arduino, on the other hand, sends a command when the suction system 
+takes a card and waits on top of the camera.
 
