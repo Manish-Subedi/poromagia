@@ -28,7 +28,7 @@ def on_connect(client, userdata, flags, rc):
         print("Connection failed with "+str(rc))
 
 
-# The callback for when a PUBILSH message is received from the server
+# The callback for when a message is received onthe topic
 def on_message(client, userdata, msg):
     # cast to string
     json_raw = str(msg.payload.decode())
@@ -56,8 +56,8 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_message = on_message
 client.on_connect = on_connect
-client.username_pw_set(username="friends",password="wow_manis")
-client.connect("hetkinen.ddns.net", 2048, 60)
+client.username_pw_set(username="*****",password="*****")
+client.connect("test.mosquitto.org", 1883, 60)
 client.tls_set()
 
 while(1):
@@ -70,25 +70,5 @@ while(1):
         client.on_connect
         client.on_message
         client.loop_stop()
-
-# Create an instance
-#client = mqtt.Client()
-#client.on_connect = on_connect
-#client.on_message = on_message
-#provide login credentials
-<<<<<<< HEAD
-#client.username_pw_set(username="friends",password="Wow_manis")
-# Connect to the broker
-#client.connect("hetkinen.ddns.net", 2048, 60)
-#client.connect("test.mosquitto.org", 1883, 60)
-#client.tls_set()
-#client.loop_forever()
-
-=======
-client.username_pw_set(username="****",password="****")
-# Connect to the broker
-client.connect("****", **, *)
-client.tls_set()
-client.loop_forever()
->>>>>>> 7121143d707930ba169297f9e0d6b1bb07d9d6d0
+        
 ###### EOF ######
