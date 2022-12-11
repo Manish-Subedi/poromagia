@@ -1,0 +1,6 @@
+For Raspi:
+  Update first $ sudo apt update && sudo apt upgrade -y
+  Install pip $ sudo apt install python3-pip
+  Install paho-mqtt $ pip install paho-mqtt
+  Install SMBus $ pip install SMBus
+  
